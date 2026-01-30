@@ -4,16 +4,20 @@ use crate::model::EntrySchema;
 
 pub struct CsvOptions {
     pub include_metadata_row: bool,
-    pub use_labels: bool,
+    pub label_lang: Option<String>,
+    pub metadata_lang: Option<String>,
 }
 
 pub fn write_csv(schema: &EntrySchema, mut out: impl Write, opts: &CsvOptions) -> std::io::Result<()> {
+    // Bundle SAID as a comment tag
+    writeln!(out, "# oca_bundle_said={}", schema.said)?;
+
     // Header row
     let headers: Vec<String> = schema
         .attributes
         .iter()
         .map(|a| {
-            if opts.use_labels {
+            if opts.label_lang.is_some() {
                 a.label.clone().unwrap_or_else(|| a.name.clone())
             } else {
                 a.name.clone()
@@ -53,9 +57,6 @@ pub fn write_csv(schema: &EntrySchema, mut out: impl Write, opts: &CsvOptions) -
             .collect();
         writeln!(out, "{}", meta.join(","))?;
     }
-
-    // Bundle SAID row (first cell)
-    writeln!(out, "__oca_bundle_said__={},", schema.said)?;
 
     Ok(())
 }

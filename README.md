@@ -34,4 +34,9 @@ write_csv(&schema, &mut out, &CsvOptions { include_metadata_row: true, use_label
 
 ## CLI
 
-Use the `oca` CLI (in oca-bin) once the data-entry command is wired in there.
+Use `oca data-entry` in oca-bin:
+
+```
+oca data-entry --bundle bundle.json --format csv --out entry.csv --labels en --metadata en
+oca data-entry --bundle bundle.json --format xlsx --out entry.xlsx --labels en --metadata en
+```

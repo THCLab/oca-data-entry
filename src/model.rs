@@ -1,4 +1,6 @@
 use serde::Serialize;
+use std::collections::HashMap;
+use oca_sdk_rs::OCABundle;
 
 #[derive(Debug, Clone, Serialize)]
 pub struct EntrySchema {
@@ -16,4 +18,10 @@ pub struct AttributeSpec {
     pub unit: Option<String>,
     pub cardinality: Option<String>,
     pub entry_values: Option<Vec<String>>,
+}
+
+#[derive(Debug, Default, Clone)]
+pub struct DependencyIndex {
+    pub by_said: HashMap<String, OCABundle>,
+    pub by_refn: HashMap<String, OCABundle>,
 }

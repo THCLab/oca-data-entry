@@ -4,8 +4,9 @@ pub mod format;
 pub mod model;
 
 pub use errors::EntryError;
-pub use extract::entry_schema_from_bundle;
-pub use model::{AttributeSpec, EntrySchema};
+pub use extract::{entry_schema_from_bundle, ExtractOptions};
+pub use extract::entry_schema_from_bundle_with_deps;
+pub use model::{AttributeSpec, EntrySchema, DependencyIndex};
 
 #[cfg(feature = "writers-csv")]
 pub use format::write_csv;
