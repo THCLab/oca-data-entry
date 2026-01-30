@@ -1,11 +1,2 @@
-# cargo-release configuration
-# https://github.com/crate-ci/cargo-release
-
-consolidate-commits = true
-sign-commit = false
-sign-tag = false
-tag-prefix = ""
+consolidate-commits = false
 publish = false
-
-pre-release-commit-message = "chore: release {{version}}"
-tag-message = "release {{version}}"
