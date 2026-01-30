@@ -14,7 +14,12 @@ pub fn entry_schema_from_bundle(
     overlay_registry: &OverlayLocalRegistry,
     options: &ExtractOptions,
 ) -> Result<EntrySchema, EntryError> {
-    entry_schema_from_bundle_with_deps(bundle, &DependencyIndex::default(), overlay_registry, options)
+    entry_schema_from_bundle_with_deps(
+        bundle,
+        &DependencyIndex::default(),
+        overlay_registry,
+        options,
+    )
 }
 
 pub fn entry_schema_from_bundle_with_deps(
@@ -115,7 +120,10 @@ fn collect_attributes(
     }
 }
 
-fn resolve_reference<'a>(attr_type: &NestedAttrType, deps: &'a DependencyIndex) -> Option<&'a OCABundle> {
+fn resolve_reference<'a>(
+    attr_type: &NestedAttrType,
+    deps: &'a DependencyIndex,
+) -> Option<&'a OCABundle> {
     match attr_type {
         NestedAttrType::Reference(RefValue::Said(said)) => deps.by_said.get(&said.to_string()),
         NestedAttrType::Reference(RefValue::Name(name)) => deps.by_refn.get(name),
@@ -123,7 +131,10 @@ fn resolve_reference<'a>(attr_type: &NestedAttrType, deps: &'a DependencyIndex) 
     }
 }
 
-fn labels_from_bundle_model(bundle: &OCABundleModel, lang: Option<&str>) -> HashMap<String, String> {
+fn labels_from_bundle_model(
+    bundle: &OCABundleModel,
+    lang: Option<&str>,
+) -> HashMap<String, String> {
     let mut out = HashMap::new();
     for overlay in &bundle.overlays {
         if !overlay.name.contains("label") {

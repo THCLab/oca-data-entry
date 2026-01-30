@@ -1,6 +1,6 @@
+use oca_sdk_rs::OCABundle;
 use serde::Serialize;
 use std::collections::HashMap;
-use oca_sdk_rs::OCABundle;
 
 #[derive(Debug, Clone, Serialize)]
 pub struct EntrySchema {

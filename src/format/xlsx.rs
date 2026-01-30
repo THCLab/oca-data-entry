@@ -1,6 +1,9 @@
 use std::path::Path;
 
-use umya_spreadsheet::{new_file, writer::xlsx::{write, XlsxError}};
+use umya_spreadsheet::{
+    new_file,
+    writer::xlsx::{write, XlsxError},
+};
 
 use crate::model::EntrySchema;
 
@@ -41,10 +44,14 @@ pub fn write_xlsx(schema: &EntrySchema, path: &Path, opts: &XlsxOptions) -> Resu
         let mut row_meta = 4u32;
         for attr in schema.attributes.iter() {
             let cell = format!("A{}", row_meta);
-            meta_sheet.get_cell_mut(cell.as_str()).set_value(attr.name.clone());
+            meta_sheet
+                .get_cell_mut(cell.as_str())
+                .set_value(attr.name.clone());
             if let Some(label) = &attr.label {
                 let cell = format!("B{}", row_meta);
-                meta_sheet.get_cell_mut(cell.as_str()).set_value(label.clone());
+                meta_sheet
+                    .get_cell_mut(cell.as_str())
+                    .set_value(label.clone());
             }
             if let Some(t) = &attr.attr_type {
                 let cell = format!("C{}", row_meta);

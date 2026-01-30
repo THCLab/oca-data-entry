@@ -8,7 +8,11 @@ pub struct CsvOptions {
     pub metadata_lang: Option<String>,
 }
 
-pub fn write_csv(schema: &EntrySchema, mut out: impl Write, opts: &CsvOptions) -> std::io::Result<()> {
+pub fn write_csv(
+    schema: &EntrySchema,
+    mut out: impl Write,
+    opts: &CsvOptions,
+) -> std::io::Result<()> {
     // Bundle SAID as a comment tag
     writeln!(out, "# oca_bundle_said={}", schema.said)?;
 
