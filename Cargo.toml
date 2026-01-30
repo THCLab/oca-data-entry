@@ -3,6 +3,7 @@ name = "oca-data-entry"
 version = "0.2.2"
 edition = "2021"
 license = "EUPL-1.2"
+description = "OCA data entry library - Generate data-entry templates (XLSX/ODS/CSV) from OCA bundles"
 
 [dependencies]
 oca-sdk-rs = { version = "2.0.0-rc.5" }
