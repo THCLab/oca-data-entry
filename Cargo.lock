@@ -1084,7 +1084,7 @@ dependencies = [
 
 [[package]]
 name = "oca-data-entry"
-version = "0.2.3"
+version = "0.2.4"
 dependencies = [
  "csv",
  "indexmap",

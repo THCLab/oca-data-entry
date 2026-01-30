@@ -1,6 +1,6 @@
 [package]
 name = "oca-data-entry"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 license = "EUPL-1.2"
 description = "OCA data entry library - Generate data-entry templates (XLSX/ODS/CSV) from OCA bundles"
