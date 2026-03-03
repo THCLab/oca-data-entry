@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet};
 
-use oca_sdk_rs::overlay_registry::OverlayLocalRegistry;
-use oca_sdk_rs::{NestedAttrType, OCABundle, OCABundleModel, RefValue};
+
+use oca_sdk_rs::oca::{bundle::{OCABundle, OCABundleModel}, overlay_file::{NestedAttrType, OverlayLocalRegistry, RefValue}};
 
 use crate::{
     errors::EntryError,

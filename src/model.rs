@@ -1,4 +1,4 @@
-use oca_sdk_rs::OCABundle;
+use oca_sdk_rs::oca::bundle::OCABundle;
 use serde::Serialize;
 use std::collections::HashMap;
 
